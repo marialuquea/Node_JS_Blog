@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href="https://fonts.googleapis.com/css?family=Aclonica", rel="stylesheet")
+  body
+   .header
+    img.logo(src='/images/blog_header.png')
+   .container
+    nav
+     ul
+      li
+       a(href='/') Home
+      li
+       a(href='/posts/add') Add Post
+      li
+       a(href='/categories/add') Add Category
+    != messages()
+    block content
+    footer
+     p 40280156 - WebTechnologies &copy; 2018
