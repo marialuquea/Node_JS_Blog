@@ -140,19 +140,7 @@ textarea{
 	width:400px;
 }
 
-ul.success li{
-	padding: 15px;
-	margin-top:10px;
-  	margin-bottom: 20px;
-  	border: 1px solid transparent;
-  	border-radius: 4px;
-  	color: #3c763d;
-  	background-color: #dff0d8;
-  	border-color: #d6e9c6;
-  	list-style:none;
-}
-
-.alert{
+.alert, ul.error, ul.success li{
   color: white;
   background-color: #CC7E96;
   padding: 10px;
