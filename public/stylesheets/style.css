@@ -79,7 +79,8 @@ nav a.current, nav a:hover{
   float: right;
   padding-top: 15px;
   list-style: none;
-
+  color: white;
+  font-size: 100px;
 }
 
 .meta{
