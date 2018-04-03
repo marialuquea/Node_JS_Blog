@@ -11,11 +11,18 @@ html
     nav
      ul
       li
-       a(href='/') Home
+       a(href='/') Blog
       li
        a(href='/posts/add') Add Post
       li
        a(href='/categories/add') Add Category
+      li
+       a(href='/users/register') Register
+      li
+       a(href='/users/login') Login
+    ul.navbar-right
+     li
+      a(href='/users/logout') Log out
     != messages()
     block content
     footer

@@ -48,7 +48,6 @@ p{
 }
 
 nav{
-	/* background:#DB8669;*/
   background: #CC7E96;
 	color:#fff;
 	overflow:auto;
@@ -74,6 +73,13 @@ nav a.current, nav a:hover{
 	background: #E7EBD6;
 	color: #CC7E96;
   border-radius: 8px;
+}
+
+.navbar-right {
+  float: right;
+  padding-top: 15px;
+  list-style: none;
+
 }
 
 .meta{
@@ -144,4 +150,12 @@ ul.success li{
   	background-color: #dff0d8;
   	border-color: #d6e9c6;
   	list-style:none;
+}
+
+.alert{
+  color: white;
+  background-color: #CC7E96;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 15px 400px 15px 30px;
 }

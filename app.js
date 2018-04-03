@@ -5,16 +5,23 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var multer = require('multer');
-var upload = multer({ dest: 'uploads/' })
+var passport = require('passport');
 var expressValidator = require('express-validator');
+var LocalStrategy = require('passport-local').Strategy;
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/' });
+var flash = require('connect-flash');
+var bcrypt = require('bcryptjs');
 
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
+var mongoose = require('mongoose');
+var db2 = mongoose.connection;
 
 var routes = require('./routes/index');
 var posts = require('./routes/posts');
 var categories = require('./routes/categories');
+var users = require('./routes/users');
 
 var app = express();
 
@@ -35,6 +42,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// public will be the static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Express Session
@@ -76,9 +84,13 @@ app.use(function(req,res,next){
     next();
 });
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', routes);
 app.use('/posts', posts);
 app.use('/categories', categories);
+app.use('/users', users)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
