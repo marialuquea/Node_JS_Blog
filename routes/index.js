@@ -3,17 +3,6 @@ var router = express.Router();
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
 
-/* GET home page.
-router.get('/', function(req, res, next) {
-	var db = req.db;
-	var posts = db.get('posts');
-	posts.find({}, {}, function(err, posts){
-		res.render('index', { posts: posts });
-	});
-});
-*/
-
-
 //Without authentication, blog blocked
 router.get('/', ensureAuthenticated,function(req, res, next) {
 	var db = req.db;
@@ -32,7 +21,14 @@ function ensureAuthenticated(req, res, next){
 		res.redirect('/users/login');
 }
 
+// Go to About me page
+router.get('/aboutme', function(req, res){
+  res.render('../views/aboutme.jade');
+});
 
-
+// Go to gallery page
+router.get('/gallery', function(req, res){
+  res.render('../views/gallery.jade');
+});
 
 module.exports = router;
