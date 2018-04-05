@@ -13,11 +13,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/register', function(req, res, next) {
-  res.render('register');
+  res.render('register', {title: 'Register'});
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login');
+  res.render('login', {title:'Login'});
 });
 
 router.post('/login',
@@ -32,6 +32,7 @@ router.post('/login',
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
+  console.log(user.id);
 });
 
 passport.deserializeUser(function(id, done) {
@@ -48,10 +49,13 @@ passport.use(new LocalStrategy( function(username, password, done){
     }
 
     User.comparePassword(password, user.password, function(err, isMatch){
-      if(err) return done(err);
+      if(err){
+        return done(err);
+      }
       if(isMatch){
         return done(null, user);
-      } else{
+      }
+      else{
         return done(null, false, {message: 'Invalid Password'});
       }
     });
@@ -76,7 +80,7 @@ router.post('/register', upload.single('profileimage') ,function(req, res, next)
     var profileimage = 'noimage.jpg';
   }
 
-  // For Validator
+  // Form Validator
   req.checkBody('name', 'Name field is required').notEmpty();
   req.checkBody('email', 'Email field is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
@@ -103,12 +107,19 @@ router.post('/register', upload.single('profileimage') ,function(req, res, next)
     });
 
     User.createUser(newUser, function(err, user){
-      if(err) throw err;
+      if(err){
+        throw err;
+      }
+      // display user info in console
       console.log(user);
+      console.log(user.name);
+      console.log(user.username);
     });
 
+    //display success message
     req.flash('success', 'You are now registered and can login');
 
+    // redirect to blog
     res.location('/');
     res.redirect('/');
   }
@@ -118,7 +129,10 @@ router.get('/logout', function(req, res) {
   req.logout();
   //display message at the top
   req.flash('success', 'You are now logged out');
+  console.log("user is logged out");
+  //redirect back to login page
   res.redirect('/users/login');
+
 })
 
 module.exports = router;
