@@ -3,9 +3,9 @@ extends layout
 block content
     .post
      h1=post.title
-     p.meta Posted in 
-      a(href='/categories/show/#{post.category}') #{post.category} 
-      by #{post.author} 
+     p.meta Posted in
+      a(href='/categories/show/#{post.category}') #{post.category}
+      by #{post.author}
       on #{moment(post.date).format("MM-DD-YYYY")}
      img(src='/images/#{post.mainimage}')
      !=post.body
@@ -36,5 +36,3 @@ block content
       textarea.form-control(type='text', name='body')
      br
      input.btn.btn-default(type='submit', name='submit',value='Add Comment')
-
-

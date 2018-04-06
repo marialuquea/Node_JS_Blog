@@ -7,6 +7,22 @@ html
   body
    .header
     img.logo(src='/images/blog_header.png')
+
+   .leftnav
+    img.sidephoto(src='/images/aboutme.png')
+    .contactme Follow me
+    br
+    img.followimg(src='/images/facebook.png')
+    img.followimg(src='/images/insta.png')
+    img.followimg(src='/images/linkedin2.png')
+
+   .rightnav
+    .contactme#joinme Join the team
+    input.email(name='email', type='email', placeholder='Enter email')
+    br
+    input.submit(type='submit', name='subscribe', value='Subscribe')
+    .total 1,783,201 monthly subscribers
+
    .container
     nav
      ul
@@ -15,11 +31,11 @@ html
       li
        a(href='/aboutme') About me
       li
-       a(href='/gallery') Gallery
-      li
-       a(href='/posts/add') Add Post
-      li
-       a(href='/categories/add') Add Category
+       a(href='/gallery') Work with me
+       li
+        a(href='/posts/add') Add Post
+       li
+        a(href='/categories/add') Add Category
       if !user
        li
         a(href='/users/register') Register
@@ -31,4 +47,4 @@ html
     != messages()
     block content
     footer
-     p 40280156 - Web Technologies &copy; 2018
+     p 40280156 - Maria Around the world &copy; 2018
