@@ -12,16 +12,16 @@ body {
 }
 
 .arrow_left{
-  width: 330px;
+  width: 240px;
   position: fixed;
-  margin-top: auto;
-  left: 20px;
+  margin-top: 220px;
+  left: 80px;
 }
 
 .arrow_right{
   width: 330px;
   position: fixed;
-  top: auto;
+  top: 150px;
   right: 20px;
 }
 

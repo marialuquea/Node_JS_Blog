@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1 Edit Post
+  ul.errors
+    if errors
+      each error, i in errors
+        li.alert.alert-danger #{error.msg}
+  if posts
+   each post, i in posts
+    form(method='post', action='/posts/editpost', enctype="multipart/form-data")
+      .form-group
+        label Title:
+        input.form-control(name='title', type='text', value='#{post.title}')
+      .form-group
+        label Category
+        select.form-control(name='category')
+          each category, i in categories
+            option(value='#{category.name}') #{category.name}
+      .form-group
+        label Body
+        textarea.form-control(name = 'body', id = 'body', value= '#{post.body}') #{post.body}
+      .form-group
+        label Main Image:
+        input.form-control(name = 'mainimage', type ='file', value = '#{post.mainimage}' )
+      .form-group
+       input.btn.btn-default(name = 'submit',type = 'submit', value = 'Save')
+
+    script(src='/ckeditor/ckeditor.js')
+    script
+      | CKEDITOR.replace('body');
