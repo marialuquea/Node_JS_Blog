@@ -8,20 +8,9 @@ html
    .header
     img.logo(src='/images/blog_header.png')
 
-   .leftnav
-    img.sidephoto(src='/images/aboutme.png')
-    .contactme Follow me
-    br
-    img.followimg(src='/images/facebook.png')
-    img.followimg(src='/images/insta.png')
-    img.followimg(src='/images/linkedin2.png')
+   img.arrow_left(src='/images/arrow2.png')
 
-   .rightnav
-    .contactme#joinme Join the team
-    input.email(name='email', type='email', placeholder='Enter email')
-    br
-    input.submit(type='submit', name='subscribe', value='Subscribe')
-    .total 1,783,201 monthly subscribers
+   img.arrow_right(src='/images/arrow1.png')
 
    .container
     nav
@@ -47,4 +36,23 @@ html
     != messages()
     block content
     footer
-     p 40280156 - Maria Around the world &copy; 2018
+     p Maria Luque &copy
+
+
+  .leftnav
+   img.sidephoto(src='/images/aboutme.png')
+   .contactme Follow me
+    br
+    a(href="https://www.facebook.com/marialuqueanguita", target="_blank")
+     img.followimg(src="/images/facebook.png")
+    a(href="https://www.instagram.com/marialuquea/", target="_blank")
+     img.followimg(src="/images/insta.png")
+    a(href="https://www.linkedin.com/in/marialuqueanguita", target="_blank")
+     img.followimg(src="/images/linkedin2.png")
+
+  .rightnav
+   .contactme#joinme Join the team
+   input.email(name='email', type='email', placeholder='Enter email')
+   br
+   input.submit(type='submit', name='subscribe', value='Subscribe')
+   .total 1,783,201 monthly subscribers

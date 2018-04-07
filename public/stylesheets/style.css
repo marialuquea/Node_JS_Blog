@@ -11,26 +11,33 @@ body {
   width: 1000px;
 }
 
-.leftnav {
-  height: 40%;
-  width: 300px;
+.arrow_left{
+  width: 330px;
   position: fixed;
-  top: 25%;
-  background-color: transparent;
-  border: 3px solid #CC7E96;
-  border-radius: 14px;
-  left: 60px;
+  margin-top: auto;
+  left: 20px;
 }
 
-.rightnav {
-  height: 40%;
-  width: 300px;
+.arrow_right{
+  width: 330px;
   position: fixed;
-  top: 25%;
+  top: auto;
+  right: 20px;
+}
+
+@media only screen and (max-width: 1700px) {
+    .arrow_left, .arrow_right {
+        display: none;
+    }
+}
+
+.leftnav, .rightnav{
+  width: 950px;
   background-color: transparent;
-  border: 3px solid #CC7E96;
+  border: 4px solid #CC7E96;
   border-radius: 14px;
-  right: 60px;
+  padding: 20px;
+  margin: 20px auto;
 }
 
 .rightnav input {
@@ -40,18 +47,19 @@ body {
 }
 
 .rightnav .email{
-  margin-left: 45px;
+  margin-left: 39%;
   margin-top: 50px;
 }
 
 .rightnav .submit{
-  margin-left: 90px;
+  margin-left: 43%;
 }
 
-.sidephoto {
+.leftnav .sidephoto {
   height: 150px;
   margin-top: 10px;
-  margin-left: 75px;
+  margin: 5px 0;
+  margin-left: 43%;
 }
 
 .contactme {
@@ -61,21 +69,22 @@ body {
 }
 
 #joinme {
-  padding-top: 80px;
+  padding-top: 30px;
 }
 
-.total {
+.rightnav .total {
   color: #CC7E96;
-  position: absolute;
   bottom: 5px;
-  right: 5px;
+  margin-left: 38%;
   font-size: 16px;
+  margin-top: 50px;
 }
 
 .followimg {
   width: 80px;
   text-align: center;
   padding-left: 13px;
+  margin-top: 25px;
 }
 
 .work{
@@ -91,10 +100,11 @@ body {
 
 .container{
 	width:950px;
-	border: 3px solid #CC7E96;
+	border: 4px solid #CC7E96;
 	margin: 20px auto;
 	padding:20px;
   border-radius: 14px;
+  overflow-x: hidden;
 }
 
 .clr{
