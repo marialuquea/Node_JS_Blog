@@ -2,27 +2,34 @@ extends layout
 
 block content
  h1 Register
- 
+
  if errors
   each error, i in errors
    div.alert #{error.msg}
+
  form(method='post', action='/users/register', enctype='multipart/form-data')
   .addpostbox
-   label Name
-   input.login(name='name', type='text', placeholder='Enter name')
+   label.addpost Name
+   input.addpost-input(name='name', type='text', placeholder='Enter name')
    br
-   label Email
-   input.login(name='email', type='email', placeholder='Enter email')
+   label.addpost Email
+   input.addpost-input(name='email', type='email', placeholder='Enter email')
+
   .addpostbox
-   label Username
-   input.login(name='username', type='text', placeholder='Enter username')
+   label.addpost Username
+   input.addpost-input(name='username', type='text', placeholder='Enter username')
    br
-   label Password
-   input.login(name='password', type='password', placeholder='Enter password')
+   label.addpost Password
+   input.addpost-input(name='password', type='password', placeholder='Enter password')
    br
-   label Confirm password
-   input.login(name='password2', type='password', placeholder='Confirm password')
+   label.addpost Confirm password
+   input.addpost-input(name='password2', type='password', placeholder='Confirm password')
+
   .addpostbox
-   label Profile image
-   input.login(name='profileimage', type='file')
+   label.addpost Profile image
+   input.addpost-input(name='profileimage', type='file')
+
   input.save(type='submit', name='submit', value='Register')
+  br
+  br
+  hr

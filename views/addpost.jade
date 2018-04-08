@@ -3,7 +3,7 @@ extends layout
 block content
 
 	h1=title
-	
+
 	ul.errors
 		if errors
 			each error, i in errors
@@ -27,8 +27,9 @@ block content
 
 		.addpostbox
 			label.addpost Post image:
-			input(name='mainimage', type='file')
+			input.addpost-input(name='mainimage', type='file')
 
+		.addpostbox
 			label.addpost Sign it with a cool name:
 			select(name='author')
 				option(value='Maria Luque') Maria Luque

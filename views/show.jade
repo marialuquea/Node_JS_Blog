@@ -11,7 +11,7 @@ block content
      img(src='/images/#{post.mainimage}')
      !=post.body
      br
-     hr
+
      if post.comments
       h2 Comments
       each comment, i in post.comments
@@ -21,21 +21,28 @@ block content
       br
 
     h2 Add Comment
-    
+
     if errors
      ul.errors
       each error, i in errors
-       li.alert.alert-danger #{error.msg}
-    form.comment-form(method='post', action='/posts/addcomment')
+       li.alert #{error.msg}
+
+    form(method='post', action='/posts/addcomment')
      input(name='postid', type='hidden', value='#{post._id}')
-     .form-group
-      label Name
-      input.form-control(type='text', name='name')
-     .form-group
-      label Email
-      input.form-control(type='text', name='email')
-     .form-group
-      label Body
-      textarea.form-control(type='text', name='body')
+     .addpostbox
+      label.addpost Name
+      input.addpost-input(type='text', name='name')
+
+      label.addpost Email
+      input.addpost-input(type='text', name='email')
+
+     .addpostbox
+      label.addpost Comment (please say nice things, thanks)
+      br
+      textarea(type='text', name='body')
+
      br
-     input.btn.btn-default(type='submit', name='submit',value='Add Comment')
+     input.save(type='submit', name='submit',value='Add Comment')
+     br
+     br
+     hr
