@@ -5,11 +5,9 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(href="https://fonts.googleapis.com/css?family=Aclonica", rel="stylesheet")
   body
-   .header
-    img.logo(src='/images/blog_header.png')
+   img.logo(src='/images/blog_header.png')
 
    img.arrow_left(src='/images/rastro.PNG')
-
    img.arrow_right(src='/images/avion.PNG')
 
    .container
@@ -21,6 +19,7 @@ html
        a(href='/aboutme') About me
       li
        a(href='/gallery') Work with me
+      if user
        li
         a(href='/posts/add') Add Post
        li
@@ -36,8 +35,7 @@ html
     != messages()
     block content
     footer
-     p Maria Luque &copy
-
+     p.napierno 40280156 - Web Technologies ENU
 
   .leftnav
    img.sidephoto(src='/images/aboutme.png')

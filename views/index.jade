@@ -1,21 +1,30 @@
 extends layout
 
 block content
+
   if posts
    each post, i in posts
     .post
      h1
       a(href='/posts/show/#{post._id}')
        =post.title
-     p.meta Posted in
+
+     p.posted Posted in
       a(href='/categories/show/#{post.category}') #{post.category}
-      by #{post.author}
-      on #{moment(post.date).format("MM-DD-YYYY")}
+      by by #{post.author} on #{moment(post.date).format("MM-DD-YYYY")}
+
      img(src='/images/#{post.mainimage}')
-     !=truncateText(post.body,400)
-     a.more(href='/posts/show/#{post._id}') Read More
+
+     !=truncateText(post.body,600)
+
+     a.readmore(href='/posts/show/#{post._id}') Read More
+
      br
+
      a(href='/posts/editpost/#{post._id}')
-      input.btn.btn-primary(type='button', name= 'editpost', value= 'Edit Post')
+      input.editdelete#edit(type='button', name= 'editpost', value= 'Edit Post')
      a(href='/posts/deletepost/#{post._id}')
-      input.btn.btn-primary(type='button', name= 'deletepost', value= 'Delete Post')
+      input.editdelete(type='button', name= 'deletepost', value= 'Delete Post')
+
+  if !posts
+   h4 Login to add your first post.

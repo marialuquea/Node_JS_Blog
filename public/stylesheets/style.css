@@ -1,7 +1,64 @@
+/*----------------FOR ALL-------------------*/
 body {
   font: 15px Helvetica, Arial, sans-serif;
   background: #f4f4f4;
   color:#666;
+}
+
+ul{
+	padding:0;
+	margin:0;
+}
+
+h1,h2,h3,p{
+	padding:15px 0;
+	margin-bottom:0;
+  text-decoration: none;
+}
+
+h1{
+  font-size: 54px;
+  font-family: 'Aclonica';
+}
+h2{
+  font-size: 40px;
+  text-decoration: none;
+  font-family: 'Aclonica';
+}
+h3{
+  font-size: 20px;
+}
+
+p{ margin:0; }
+
+.post img{ width:100%; }
+
+nav{
+  background: #CC7E96;
+	color:#fff;
+	overflow:auto;
+	height:40px;
+	padding:20px 0 0 10px;
+	font-size: 18px;
+  border-radius: 13px;
+}
+
+nav li{
+	float:left;
+	list-style:none;
+}
+
+nav a{
+	padding:10px;
+	margin:0 10px;
+	color:#fff;
+	text-decoration:none;
+}
+
+nav a.current, nav a:hover{
+	background: #E7EBD6;
+	color: #CC7E96;
+  border-radius: 8px;
 }
 
 .logo{
@@ -87,19 +144,8 @@ body {
   margin-top: 25px;
 }
 
-.work{
-    left: 50%;
-}
-
-.collab{
-  text-align: center;
-  font-family: 'Aclonica';
-  font-size: 25px;
-  padding: 50px 0;
-}
-
 .container{
-	width:950px;
+	width: 950px;
 	border: 4px solid #CC7E96;
 	margin: 20px auto;
 	padding:20px;
@@ -111,65 +157,6 @@ body {
 	clear: both;
 }
 
-ul{
-	padding:0;
-	margin:0;
-}
-
-h1,h2,h3,p{
-	padding:15px 0;
-	margin-bottom:0;
-  text-decoration: none;
-}
-
-h1{
-  font-size: 54px;
-  font-family: 'Aclonica';
-}
-h2{
-  font-size: 40px;
-  text-decoration: none;
-}
-h3{
-  font-size: 20px;
-}
-
-p{
-	margin:0;
-}
-
-.post img{
-	width:100%;
-}
-
-nav{
-  background: #CC7E96;
-	color:#fff;
-	overflow:auto;
-	height:40px;
-	padding:20px 0 0 10px;
-	font-size: 18px;
-  border-radius: 13px;
-}
-
-nav li{
-	float:left;
-	list-style:none;
-}
-
-nav a{
-	padding:10px;
-	margin:0 10px;
-	color:#fff;
-	text-decoration:none;
-}
-
-nav a.current, nav a:hover{
-	background: #E7EBD6;
-	color: #CC7E96;
-  border-radius: 8px;
-}
-
 .navbar-right {
   float: right;
   padding-top: 15px;
@@ -178,14 +165,14 @@ nav a.current, nav a:hover{
   font-size: 100px;
 }
 
-.meta{
+.posted{
 	padding:7px;
 	background: #E7EBD6;
 	margin-bottom:10px;
   border-radius: 13px;
 }
 
-a.more{
+a.readmore{
 	display:block;
 	width:80px;
 	background:#CC7E96;
@@ -197,8 +184,8 @@ a.more{
 }
 
 .post{
-	border-bottom:1px solid #ccc;
-	padding-bottom:20px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
 }
 
 .post h1 a{
@@ -217,7 +204,6 @@ textarea{
 
 label{
 	display:inline-block;
-	width:180px;
 }
 
 input[type='text'], select, textarea{
@@ -227,9 +213,7 @@ input[type='text'], select, textarea{
 	border:1px #ccc solid;
 }
 
-select{
-	height:28px;
-}
+select{ height:28px; }
 
 textarea{
 	height:70px;
@@ -244,6 +228,78 @@ textarea{
   margin: 15px 400px 15px 30px;
 }
 
-.maria {
-  width: 50%;
+.maria { width: 50%; }
+
+.napierno{
+  font-family: 'Aclonica';
+  font-size: 17px;
+}
+
+/*-------------ADDPOST.JADE---------------*/
+.addpost{
+  font-size: 19px;
+  margin: 20px 0;
+  border-radius: 4px;
+  padding: 10px;
+  margin-right: 20px;
+  color: #CC7E96;
+  font-style: bold;
+}
+.addpost-input{ margin-right: 70px; }
+.addpostbox{
+  padding: 3px 10px;
+  border: 2px solid #CC7E96;
+  border-radius: 14px;
+  margin: 15px auto;
+}
+.save{
+  border: 2px solid #CC7E96;
+  border-radius: 6px;
+  background-color: #CC7E96;
+  padding: 10px 20px;
+  margin: 1px 20px;
+  font-size: 17px;
+  color: white;
+}
+
+/*-------------INDEX.JADE---------------*/
+.editdelete{
+  border: 2px solid #CC7E96;
+  border-radius: 6px;
+  background-color: transparent;
+  padding: 5px;
+  margin: 1px 10px;
+}
+.editdelete#edit{ margin-left: 80%; }
+
+/*-------------ADDCATEGORY.JADE---------------*/
+.addcategory {
+  border: 2px solid #CC7E96;
+  border-radius: 6px;
+  background-color: transparent;
+  margin: 10px;
+  margin-left: 20px;
+  padding: 5px 15px;
+  font-size: 17px;
+}
+
+/*---------GALLERY.JADE (Work with me)---------*/
+.work{ left: 50%; }
+
+.collab{
+  text-align: center;
+  font-family: 'Aclonica';
+  font-size: 25px;
+  padding: 50px 0;
+}
+
+/*---------LOGIN.JADE----------*/
+.login{
+  margin-left: 30px;
+  height: 20px;
+}
+
+/*--------SHOW.JADE---------*/
+.name {
+  font-weight: bold;
 }

@@ -3,7 +3,8 @@ extends layout
 block content
     .post
      h1=post.title
-     p.meta Posted in
+
+     p.posted Posted in
       a(href='/categories/show/#{post.category}') #{post.category}
       by #{post.author}
       on #{moment(post.date).format("MM-DD-YYYY")}
@@ -12,13 +13,15 @@ block content
      br
      hr
      if post.comments
-      h3 Comments
+      h2 Comments
       each comment, i in post.comments
-       .comment
-        p.comment-name #{comment.name}
-        p.comment-body #{comment.body}
+       .addpostbox
+        p.name #{comment.name}
+        p #{comment.body}
       br
-    h3 Add Comment
+
+    h2 Add Comment
+    
     if errors
      ul.errors
       each error, i in errors
