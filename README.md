@@ -21,8 +21,7 @@ C:\>
 C:\> cd Projects\luqueanguita_maria_set008101_coursework2
 C:\Projects\luqueanguita_maria_set008101_coursework2>
 ```
-
-- type 'npm start' like shown below
+- type the following commands (npm install and npm start)
 
 ```
 C:\Projects\luqueanguita_maria_set008101_coursework2> npm start
@@ -39,3 +38,4 @@ The program will automatically take you to localhost:3000/users/login
 3. Add category
 4. Add post
 
+**Report added in main folder**
