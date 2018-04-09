@@ -5,12 +5,8 @@ var upload = multer({dest: './uploads'});
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+//connect to schema
 var User = require('../models/user');
-
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respons with a source');
-});
 
 router.get('/register', function(req, res, next) {
   res.render('register', {title: 'Register'});
@@ -24,7 +20,7 @@ router.post('/login',
   passport.authenticate('local', {failureRedirect: '/users/login', failureFlash: 'Invalid username or password'}),
   function(req, res){
     // if this function gets called, authentication was successful
-    req.flash('success', 'You are now logged in');
+    req.flash('success', 'WELCOME TO MY BLOG YOOOOO');
     // redirect to homepage
     res.redirect('/');
   }
@@ -36,19 +32,19 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  User.getUserById(id, function(err, user) {
+  User.findUser_id(id, function(err, user) {
     done(err, user);
   });
 });
 
 passport.use(new LocalStrategy( function(username, password, done){
-  User.getUserByUsername(username, function(err, user){
+  User.findUser_username(username, function(err, user){
     if (err) throw err;
     if(!user){
-      return done(null, false, {message: 'Unknown user'});
+      return done(null, false, {message: 'WHO ARE YOU? Register pls'});
     }
 
-    User.comparePassword(password, user.password, function(err, isMatch){
+    User.check_passwords_match(password, user.password, function(err, isMatch){
       if(err){
         return done(err);
       }
@@ -56,7 +52,7 @@ passport.use(new LocalStrategy( function(username, password, done){
         return done(null, user);
       }
       else{
-        return done(null, false, {message: 'Invalid Password'});
+        return done(null, false, {message: 'dude you forgot your password... again...'});
       }
     });
   });
@@ -73,20 +69,20 @@ router.post('/register', upload.single('profileimage') ,function(req, res, next)
   console.log(req.file);
 
   if(req.file){
-    console.log('File uplaoded');
+    console.log('i got the pic');
     var profileimage = req.file.filename;
   } else{
-    console.log('No file uploaded');
+    console.log('no pic sorry');
     var profileimage = 'noimage.jpg';
   }
 
   // Form Validator
-  req.checkBody('name', 'Name field is required').notEmpty();
-  req.checkBody('email', 'Email field is required').notEmpty();
-  req.checkBody('email', 'Email is not valid').isEmail();
-  req.checkBody('username', 'Username field is required').notEmpty();
-  req.checkBody('password', 'Password field is required').notEmpty();
-  req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+  req.checkBody('name', 'Fill in the name, please').notEmpty();
+  req.checkBody('email', 'Fill in the email, please').notEmpty();
+  req.checkBody('email', 'Email does not have an email format!!').isEmail();
+  req.checkBody('username', 'Think of an awesome username').notEmpty();
+  req.checkBody('password', 'No password?').notEmpty();
+  req.checkBody('password2', 'Do not be dumb, passwords do not match').equals(req.body.password);
 
   // Check Errors
   var errors = req.validationErrors();
@@ -106,7 +102,7 @@ router.post('/register', upload.single('profileimage') ,function(req, res, next)
       profileimage: profileimage
     });
 
-    User.createUser(newUser, function(err, user){
+    User.create_user(newUser, function(err, user){
       if(err){
         throw err;
       }
@@ -117,7 +113,7 @@ router.post('/register', upload.single('profileimage') ,function(req, res, next)
     });
 
     //display success message
-    req.flash('success', 'You are now registered and can login');
+    req.flash('success', 'YASS now go login to view the Blog! Welcomeeee <3');
 
     // redirect to blog
     res.location('/');
@@ -128,7 +124,7 @@ router.post('/register', upload.single('profileimage') ,function(req, res, next)
 router.get('/logout', function(req, res) {
   req.logout();
   //display message at the top
-  req.flash('success', 'You are now logged out');
+  req.flash('success', 'K BYEEE, come back soon!');
   console.log("user is logged out");
   //redirect back to login page
   res.redirect('/users/login');

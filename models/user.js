@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
-//nodeblog is the folder where the db is stored
+//nodeblog is the local folder where the db is stored
 mongoose.connect('mongodb://localhost/nodeblog');
 
 var db2 = mongoose.connection;
 
 //User schema
-var UserSchema = mongoose.Schema({
+var schema = mongoose.Schema({
   username: {
     type: String,
     index: true
@@ -26,27 +26,20 @@ var UserSchema = mongoose.Schema({
   }
 });
 
-var User = module.exports = mongoose.model('User', UserSchema);
+var User = module.exports = mongoose.model('User', schema);
 
-module.exports.getUserById = function(id, callback){
+module.exports.findUser_id = function(id, callback){
   User.findById(id, callback);
 }
 
-module.exports.getUserByUsername = function(username, callback){
+module.exports.findUser_username = function(username, callback){
   //create one object to find
   var query = {username: username};
   // findOne will only return one object
   User.findOne(query, callback);
 }
 
-module.exports.comparePassword = function(candidatePassword, hash, callback){
-  bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
-    // res == true
-    callback(null, isMatch);
-  });
-}
-
-module.exports.createUser = function(newUser, callback){
+module.exports.create_user = function(newUser, callback){
   //encrypt password using bcrypt
   bcrypt.genSalt(10, function(err, salt){
     bcrypt.hash(newUser.password, salt, function(err, hash) {
@@ -54,5 +47,11 @@ module.exports.createUser = function(newUser, callback){
       newUser.save(callback);
     });
   });
+}
 
+module.exports.check_passwords_match = function(maybe, hash, callback){
+  bcrypt.compare(maybe, hash, function(err, theyMatch) {
+    // res == true
+    callback(null, theyMatch);
+  });
 }

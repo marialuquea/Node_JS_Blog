@@ -20,7 +20,6 @@ var db2 = mongoose.connection;
 // files in the routes folder
 var routes = require('./routes/index');
 var posts = require('./routes/posts');
-var categories = require('./routes/categories');
 var users = require('./routes/users');
 
 var app = express();
@@ -97,7 +96,6 @@ app.use(function(req,res,next){
 // routes folder
 app.use('/', routes);
 app.use('/posts', posts);
-app.use('/categories', categories);
 app.use('/users', users)
 
 // catch 404 and forward to error handler

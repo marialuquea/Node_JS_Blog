@@ -19,7 +19,6 @@ block content
 				each category, i in categories
 					option(value='#{category.name}') #{category.name}
 
-
 		.addpostbox
 			label.addpost Stuff about post:
 			textarea(name='body', id='body')
@@ -30,10 +29,9 @@ block content
 			input.addpost-input(name='mainimage', type='file')
 
 		.addpostbox
-			label.addpost Sign it with a cool name:
-			select(name='author')
-				option(value='Maria Luque') Maria Luque
-				option(value='Other') Other
+			label.addpost Sign it with an awesome name:
+			input.addpost-input(name='author', type='text')
+
 
 		input.save(name='submit',type='submit',value='Save')
 

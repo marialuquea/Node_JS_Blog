@@ -9,9 +9,9 @@ block content
       a(href='/posts/show/#{post._id}')
        =post.title
 
-     p.posted Posted in
+     p.posted
       a(href='/categories/show/#{post.category}') #{post.category}
-      by by #{post.author} on #{moment(post.date).format("MM-DD-YYYY")}
+      by , by #{post.author}  on  #{moment(post.date).format("MM-DD-YYYY")}
 
      img(src='/images/#{post.mainimage}')
 

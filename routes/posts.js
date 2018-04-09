@@ -44,8 +44,8 @@ router.post('/add', upload.single('mainimage'), function(req, res, next) {
   }
 
   	// Form Validation
-	req.checkBody('title','Title field is required').notEmpty();
-	req.checkBody('body', 'Body field is required').notEmpty();
+	req.checkBody('title','yo, add a damn title').notEmpty();
+	req.checkBody('body', 'budy, write smth about the post man ').notEmpty();
 
 	// Check Errors
 	var errors = req.validationErrors();
@@ -55,6 +55,7 @@ router.post('/add', upload.single('mainimage'), function(req, res, next) {
 			"errors": errors
 		});
 	} else {
+		// add post to database
 		var posts = db.get('posts');
 		posts.insert({
 			"title": title,
@@ -67,7 +68,7 @@ router.post('/add', upload.single('mainimage'), function(req, res, next) {
 			if(err){
 				res.send(err);
 			} else {
-				req.flash('success','Post Added');
+				req.flash('success','yaassss queen, post was uploaded!');
 				res.location('/');
 				res.redirect('/');
 			}
@@ -101,19 +102,12 @@ router.post('/editpost', upload.single('mainimage'), function(req, res, next){
 	var category = req.body.category;
   var postid = req.app.locals.postid;
 
-	// Check Image Upload
 	if(req.file){
 		var mainimage = req.file.filename
 	} else {
-		var mainimage = 'noimage.jpg';
+		var mainimage = 'nothing.jpg';
 	}
 
-  	// Form Validation
-	req.checkBody('category','Name field is required').notEmpty();
-	req.checkBody('body', 'Body field is required').notEmpty();
-	req.checkBody('title', 'Title field is required').notEmpty();
-
-  // Check erros
 	var errors = req.validationErrors();
 
 	if(errors){
@@ -184,10 +178,8 @@ router.post('/addcomment', function(req, res, next) {
   var commentdate = new Date();
 
   	// Form Validation
-	req.checkBody('name','Name field is required').notEmpty();
-	req.checkBody('email','Email field is required but never displayed').notEmpty();
-	req.checkBody('email','Email is not formatted properly').isEmail();
-	req.checkBody('body', 'Body field is required').notEmpty();
+	req.checkBody('name','Your name is required or no one will know you were here').notEmpty();
+	req.checkBody('body', 'Why did you click Add comment if you did not write a comment?').notEmpty();
 
 	// Check Errors
 	var errors = req.validationErrors();
@@ -220,14 +212,12 @@ router.post('/addcomment', function(req, res, next) {
 			if(err){
 				throw err;
 			} else {
-				req.flash('success', 'Comment Added');
+				req.flash('success', 'Thank you for the comment!');
 				res.location('/posts/show/'+postid);
 				res.redirect('/posts/show/'+postid);
 			}
 		});
 	}
 });
-
-
 
 module.exports = router;
