@@ -32,3 +32,9 @@ C:\Projects\luqueanguita_maria_set008101_coursework2> npm start
 
 The program will automatically take you to localhost:3000/users/login
 
+To post:
+1. Register
+2. Login
+3. Add category
+4. Add post
+
