@@ -16,14 +16,15 @@ C:\mongodb\bin>mongo
 
 - open another cmd as admin
 - go to folder where project is saved 
-- type 'npm start' like shown below
-
 ```
 C:\>
 C:\> cd Projects\luqueanguita_maria_set008101_coursework2
-
 C:\Projects\luqueanguita_maria_set008101_coursework2>
+```
 
+- type 'npm start' like shown below
+
+```
 C:\Projects\luqueanguita_maria_set008101_coursework2> npm start
 ```
 
