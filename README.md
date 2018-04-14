@@ -1,13 +1,14 @@
 # luqueanguita_maria_set008101_coursework2
 Web Technologies coursework 2
 
+To run the blog in your web browser:
+
 
 **MongoDB should be installed.**
-
 **Node.Js should be installed.**
 
 To start:
-- run the Command prompt as admin
+- open the Command prompt as admin
 - go to the directory where mongo is saved, go into bin and run mongo by typing 'mongo' (start running mongo) 
 ```
 C:\mongodb\bin>mongo
@@ -15,16 +16,18 @@ C:\mongodb\bin>mongo
 - do not close that cmd
 
 - open another cmd as admin
-- go to folder where project is saved 
+- download this project and go to that foler in the cmd
+- in my case, the project folder is in the C drive, in a folder called Projects
 ```
 C:\>
-C:\> cd Projects\luqueanguita_maria_set008101_coursework2
-C:\Projects\luqueanguita_maria_set008101_coursework2>
+C:\> cd Projects\Node_JS_Blog
+C:\Projects\Node_JS_Blog>
 ```
 - type the following commands (npm install and npm start)
 
 ```
-C:\Projects\luqueanguita_maria_set008101_coursework2> npm start
+C:\Projects\Node_JS_Blog> npm install
+C:\Projects\Node_JS_Blog> npm start
 ```
 
 - go to google chrome
@@ -38,4 +41,4 @@ The program will automatically take you to localhost:3000/users/login
 3. Add category
 4. Add post
 
-**Report added in main folder**
+**Blog Report is in the main folder**
