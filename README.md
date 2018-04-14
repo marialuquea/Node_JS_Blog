@@ -1,4 +1,4 @@
-# luqueanguita_maria_set008101_coursework2
+# Blog system in Node.JS
 Web Technologies coursework 2
 
 To run the blog in your web browser:
