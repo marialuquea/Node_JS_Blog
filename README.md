@@ -44,8 +44,16 @@ The program will automatically take you to localhost:3000/users/login
 **Blog Report is in the main folder**
 
 
-#Screenshots
+##Screenshots
 
 ![Screenshot](screenshots/login.png)
 
 ![Screenshot](screenshots/register.png)
+
+![Screenshot](screenshots/blog.png)
+
+![Screenshot](screenshots/aboutme.png)
+
+![Screenshot](screenshots/workwithme.png)
+
+![Screenshot](screenshots/editpost.png)
