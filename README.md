@@ -41,10 +41,9 @@ The program will automatically take you to localhost:3000/users/login
 3. Add category
 4. Add post
 
-**Blog Report is in the main folder**
 
 
-##Screenshots
+**Screenshots**
 
 ![Screenshot](screenshots/login.png)
 
