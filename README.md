@@ -42,3 +42,10 @@ The program will automatically take you to localhost:3000/users/login
 4. Add post
 
 **Blog Report is in the main folder**
+
+
+#Screenshots
+
+![Screenshot](screenshots/login.png)
+
+![Screenshot](screenshots/register.png)
