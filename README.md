@@ -1,5 +1,4 @@
 # Blog system in Node.JS
-Web Technologies coursework 2 for Edinburgh Napier University
 
 To run the blog in your web browser:
 
