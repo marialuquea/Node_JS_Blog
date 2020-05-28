@@ -29,7 +29,7 @@ C:\Projects\Node_JS_Blog> npm install
 C:\Projects\Node_JS_Blog> npm start
 ```
 
-- go to google chrome :)
+- go to google chrome 
 - open localhost:3000
 
 The program will automatically take you to localhost:3000/users/login
