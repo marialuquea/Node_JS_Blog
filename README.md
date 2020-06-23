@@ -2,7 +2,7 @@
 
 To run the blog in your web browser:
 
-:)
+
 **MongoDB should be installed.**
 **Node.Js should be installed.**
 
